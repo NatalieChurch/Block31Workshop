@@ -15,7 +15,7 @@ app.route('/employees/random').get((req, res) => {
     const random = Math.floor(Math.random() * employees.length);
     const randomEmployee = employees[random];
 
-    res.json(randomEmployee);
+    res.send(randomEmployee);
   });
 
 
@@ -25,7 +25,7 @@ app.route('/employees/:id').get((req, res) => {
     const found = employees.find(emp => emp.id === id);
 
     if(found) {
-        res.json(found)
+        res.send(found)
     } else {
         res.status(404).send("No employee with that id found.")
     }
